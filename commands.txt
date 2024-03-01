@@ -1,0 +1,6 @@
+django-admin startproject <projectname>   - to start the project
+python manage.py runserver - to run devserver
+python manage.py startapp <appname> - to create appname
+python manage.py createsuperuser - to create superuser
+python manage.py makemigrations   - to create migrations file
+pytohn manage.py migrate - to migrate migration file to database
