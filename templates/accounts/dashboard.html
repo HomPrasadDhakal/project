@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+{% load static widget_tweaks %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MedCare | Registration Page</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/static/plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="/static/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+
+  <div class="card" style='border-radius:5vh;'>
+    <div class="register-logo mt-3">
+      <a href="#"><b>MedCare</b></a>
+    </div>
+    <div class="card-body register-card-body">
+      <form action="{% url "accounts:register_page" %}" method="POST" novalidate>
+        {% csrf_token %}
+        <div class="input-group mb-4">
+          {% render_field form.first_name class="form-control" placeholder="Enter your first name" %}
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+        {{form.first_name.errors}}
+        <div class="input-group mb-3">
+          {% render_field form.first_name class="form-control" placeholder="Enter your last name" %}
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+        {{form.last_name.errors}}
+        <div class="input-group mb-3">
+          {% render_field form.email class="form-control" placeholder="Enter your email address" %}
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+        {{form.email.errors}}
+        <div class="input-group mb-3">
+          {% render_field form.password1 class="form-control" placeholder="Enter your password" %}
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+        {{form.password1.errors}}
+        <div class="input-group mb-3">
+          {% render_field form.password2 class="form-control" placeholder="Confirm your password" %}
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+        {{form.password2.errors}}
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+          </div>
+        </div>
+      </form>
+      <p class="text-center mt-4">Don't have a account?<a href="{% url "accounts:login_page" %}">Login</a></p>
+    </div>
+  </div>
+</div>-
+
+<script src="/static/plugins/jquery/jquery.min.js"></script>
+<script src="/static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/static/dist/js/adminlte.min.js"></script>
+</body>
+</html>
